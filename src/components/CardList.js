@@ -120,7 +120,7 @@ const CardList = () => {
 
 
     return (
-        <div className='card-container'>
+        <section className='card-container'>
             {images.map(img => {
                 return (
                     <div className='card' key={img.title}>
@@ -137,7 +137,7 @@ const CardList = () => {
                     return <li key={uniqid()}>{task}</li>
                 })}
             </ul> */}
-        </div>
+        </section>
 
 
     )
