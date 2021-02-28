@@ -2,14 +2,17 @@
 
 
 body {
-  background-color: #121317;
+  background-color: #434e54;
+  /* background-color: #121317; */
   font-family: 'Roboto', sans-serif;
+  --dark-bkg: #212321;
+  --light-text-color: white;
 }
 
 .App {
   text-align: center;
 
-
+  
   --u: #1f4760;
   --p: #503955;
   --w: #907565;
@@ -39,36 +42,77 @@ body {
   background-color: var(--g);
 }
 
+h1 {
+  color: var(--light-text-color);
+}
+
+p {
+  margin: 0;
+  color: var(--light-text-color);
+}
 
 .header {
 
 }
 
 .scoreboard {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
 
+  width: 600px;
+  margin: 0 auto;
+  border: 2px solid white;
+  border-radius: 10px;
+  padding: 1em;
 }
 
 .scoreboard p {
-  color: white;
+  color: var(--light-text-color);
+  margin: 0 1.5em;
+
+  
+}
+
+.personal-score {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
 }
 
 .difficulty-container {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
+  margin: 1em 0 2em 0;
 }
 
 .btn {
   width: 70px;
   padding: .5em 0;
+  border: none;
   cursor: pointer;
+  background-color: var(--dark-bkg);
+  color: var(--light-text-color)
+}
+
+.btn:hover {
+  outline: 1px solid #ffeb3b;
+  outline-offset: -3px;
+  transition: 50ms;
+}
+
+.selected {
+  background-color: #ffeb3b;
+    font-weight: 700;
+    color: #212321;
 }
 
 /* CARD STYLES */
 
     /* DIFF SIZES PER DIFFICULTY */
     .card1 {
-      background: #212321;
+      background: var(--dark-bkg);
       width: 200px;
       height: 300px;
       border-radius: 15px;
@@ -84,7 +128,7 @@ body {
         font-size: .8em;
       }
     .card2 {
-      background: #212321;
+      background: var(--dark-bkg);
       
       width: 180px;
       height: 260px;
@@ -102,7 +146,7 @@ body {
         font-size: .8em;
       }
       .card3 {
-        background: #212321;
+        background: var(--dark-bkg);
         
         width: 180px;
         height: 260px;
@@ -154,7 +198,7 @@ body {
 }
 
 h2 {
-  color: white;
+  color: var(--light-text-color);
   margin: .3em 0;
   font-size: 1.3em;
   font-weight: 100;
@@ -174,7 +218,6 @@ img {
 }
 
 .artist {
-  color: white;
   margin: .5em 0;
   font-weight: 100;
 }

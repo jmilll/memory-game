@@ -13,9 +13,16 @@ const App = () => {
   const [difficulty, setDifficulty] = useState(1)
   const [perfectScore, setPerfectScore] = useState(6)
 
-  const reset = () => {
+  const resetRound = () => {
     setScore(0)
     setCardsArr([])
+  }
+
+  const resetAll = () => {
+    setScore(0)
+    setCardsArr([])
+    setHiScore(0)
+    setLastScore(0)
   }
 
   const scoreUp = () => {
@@ -28,13 +35,13 @@ const App = () => {
   }
 
   const handleHiScore = () => {
-    score > hiScore ? setHiScore(score) : reset()
+    score > hiScore ? setHiScore(score) : resetRound()
     //setHiScore(score)
   }
 
   const handlePerfectScore = () => {
-    difficulty === 1 ? setPerfectScore(6) : 
-    difficulty === 2 ? setPerfectScore(12) :
+    difficulty == 1 ? setPerfectScore(6) : 
+    difficulty == 2 ? setPerfectScore(12) :
     setPerfectScore(18)
     //setHiScore(score)
   }
@@ -59,7 +66,7 @@ const App = () => {
       console.log('lose')
       handleLastScore()
       handleHiScore()
-      reset()
+      resetRound()
     }
   }
 
@@ -73,46 +80,70 @@ const App = () => {
   //   setDifficulty((prevDifficulty) => prevDifficulty - 1)
   // }
 
-  const changeDifficultyEasy = () => {
-    setDifficulty(1)
+
+  const changeDifficulty = (e) => {
+    let x = Number(e.target.value)
+    setDifficulty(x)
+    removeSelections()
+    e.target.classList.add('selected')
   }
 
-  const changeDifficultyMedium = () => {
-    setDifficulty(2)
+  const removeSelections = () => {
+    const btns = document.querySelectorAll('.btn');
+    btns.forEach(btn => {
+      btn.classList.remove('selected')
+    })
   }
 
-  const changeDifficultyHard = () => {
-    setDifficulty(3)
-  }
 
-  const changeDifficultyExtreme = () => {
-    setDifficulty(4)
-  }
+  // const changeDifficultyEasy = (e) => {
+  //   setDifficulty(1)
+  //   removeSelections()
+  //   e.target.classList.add('selected')
+  // }
+
+  // const changeDifficultyMedium = (e) => {
+  //   setDifficulty(2)
+  //   removeSelections()
+  //   e.target.classList.add('selected')
+  // }
+
+  // const changeDifficultyHard = (e) => {
+  //   setDifficulty(3)
+  //   removeSelections()
+  //   e.target.classList.add('selected')
+  // }
+
+  // const changeDifficultyExtreme = (e) => {
+  //   setDifficulty(4)
+  //   removeSelections()
+  //   e.target.classList.add('selected')
+  // }
 
   useEffect(() => {
     handlePerfectScore()
+    resetAll()
   }, [difficulty])
 
-  // useEffect(() => {
-  //   console.log('use effect')
-  //   const cards = document.querySelectorAll('.card');
+  
 
-  //   const testcard = (e) => {
-  //     console.log(e.id)
-  //     if(typeof e.id === 'string') {console.log('string')}
-  //     else {console.log('not string')}
-  //   } 
 
-  //   //cards.forEach(card => card.addEventListener('click', () => addChosenCard(card.id)))
-  //   cards.forEach(card => card.addEventListener('click', () => checkMemory(card.id)))
-    
+  // onClick={changeDifficultyMedium.bind(this)}
 
-  //   return () => {
-  //     console.log(' unmount use effect...')
-  //     //cards.forEach(card => card.removeEventListener('click', addChosenCard(card.id)))
-  //     cards.forEach(card => card.addEventListener('click', () => checkMemory(card.id)))
-  //   }
-  // }, [setScore,setHiScore,setCardsArr])
+  // onClick={checkMemory.bind(this, img.title)}
+  // <div className='difficulty-container'>
+  //  <button className='btn selected' onClick={() => changeDifficultyEasy()}>Easy</button>
+  //  <button className='btn' onClick={changeDifficultyMedium.bind(this)}>Medium</button>
+  //  <button className='btn' onClick={() => changeDifficultyHard()}>Hard</button>
+  //  <button className='btn extreme' onClick={() => changeDifficultyExtreme()}>Extreme</button>
+  // </div>
+
+//   <div className='difficulty-container'>
+//   <button className='btn selected' onClick={changeDifficultyEasy.bind(this)}>Easy</button>
+//   <button className='btn' onClick={changeDifficultyMedium.bind(this)}>Medium</button>
+//   <button className='btn' onClick={changeDifficultyHard.bind(this)}>Hard</button>
+//   <button className='btn extreme' onClick={changeDifficultyExtreme.bind(this)}>Extreme</button>
+// </div>
 
 
   return (
@@ -121,10 +152,10 @@ const App = () => {
       <Header score={score} lastScore={lastScore} hiScore={hiScore} perfectScore={perfectScore} />
      
       <div className='difficulty-container'>
-        <button className='btn' onClick={() => changeDifficultyEasy()}>Easy</button>
-        <button className='btn' onClick={() => changeDifficultyMedium()}>Medium</button>
-        <button className='btn' onClick={() => changeDifficultyHard()}>Hard</button>
-        <button className='btn extreme' onClick={() => changeDifficultyExtreme()}>Extreme</button>
+        <button className='btn selected' value='1' onClick={changeDifficulty.bind(this)}>Easy</button>
+        <button className='btn' value='2' onClick={changeDifficulty.bind(this)}>Medium</button>
+        <button className='btn' value='3' onClick={changeDifficulty.bind(this)}>Hard</button>
+        <button className='btn extreme' value='4' onClick={changeDifficulty.bind(this)}>Extreme</button>
       </div>
      
       <CardList score={score} checkMemory={checkMemory} difficulty={difficulty} />
