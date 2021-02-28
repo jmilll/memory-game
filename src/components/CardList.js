@@ -249,7 +249,7 @@ const CardList = (props) => {
             <button onClick={() => {logmed()}}>med arr</button> */}
             {cards.map(img => {
                 return (
-                    <div className='card' key={img.title} id={img.title}  onClick={checkMemory.bind(this, img.title)}>
+                    <div className={'card' + difficulty} key={img.title} id={img.title}  onClick={checkMemory.bind(this, img.title)}>
                         <h2>{img.title}</h2>
                         <img src={img.src} alt={img.title} />
                         <p className='artist'>Artist: {img.artist}</p>

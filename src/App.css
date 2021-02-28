@@ -2,7 +2,7 @@
 
 
 body {
-  background-color: #503955;
+  background-color: #121317;
   font-family: 'Roboto', sans-serif;
 }
 
@@ -18,43 +18,125 @@ body {
 
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+.card.u {
+  background-color: var(--u);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.card.p {
+  background-color: var(--p);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.card.w {
+  background-color: var(--w);
+}
+
+.card.r {
+  background-color: var(--r);
+}
+
+.card.g {
+  background-color: var(--g);
+}
+
+
+.header {
+
+}
+
+.scoreboard {
+
+}
+
+.scoreboard p {
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.difficulty-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.btn {
+  width: 70px;
+  padding: .5em 0;
+  cursor: pointer;
 }
-
 
 /* CARD STYLES */
+
+    /* DIFF SIZES PER DIFFICULTY */
+    .card1 {
+      background: #212321;
+      width: 200px;
+      height: 300px;
+      border-radius: 15px;
+      padding: .5rem;
+      margin: 1rem;
+      cursor: pointer;
+    }
+      .card1 h2 {
+        font-size: 1em;
+        margin-bottom: .5em;
+      }
+      .card1 .artist {
+        font-size: .8em;
+      }
+    .card2 {
+      background: #212321;
+      
+      width: 180px;
+      height: 260px;
+      
+      border-radius: 15px;
+      padding: .5rem;
+      margin: 1rem;
+      cursor: pointer;
+    }
+      .card2 h2 {
+        font-size: .9em;
+        margin-bottom: .5em;
+      }
+      .card2 .artist {
+        font-size: .8em;
+      }
+      .card3 {
+        background: #212321;
+        
+        width: 180px;
+        height: 260px;
+        
+        border-radius: 15px;
+        padding: .5rem;
+        margin: 1rem;
+        cursor: pointer;
+      }
+        .card3 h2 {
+          font-size: .9em;
+          margin-bottom: .5em;
+        }
+        .card3 .artist {
+          font-size: .8em;
+        }
+    .card4 {
+      background: none;
+      width: 200px;
+      height: auto;
+      margin: .5rem;
+      cursor: pointer;
+    }
+      .card4 h2 {
+        display: none;
+      }
+      .card4 .artist {
+        display: none;
+      }
+      .card4 img {
+        width: 100%;
+        height: 100%;
+      }
+
 .card-container {
   display: flex;
   flex-flow: row wrap;
@@ -75,6 +157,8 @@ h2 {
   color: white;
   margin: .3em 0;
   font-size: 1.3em;
+  font-weight: 100;
+
 }
 
 img {
@@ -92,4 +176,5 @@ img {
 .artist {
   color: white;
   margin: .5em 0;
+  font-weight: 100;
 }

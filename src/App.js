@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import CardList from './components/CardList';
 import Header from './components/Header';
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 
 const App = () => {
 
@@ -11,6 +11,7 @@ const App = () => {
   const [hiScore, setHiScore] = useState(0)
   const [cardsArr, setCardsArr] = useState([])
   const [difficulty, setDifficulty] = useState(1)
+  const [perfectScore, setPerfectScore] = useState(6)
 
   const reset = () => {
     setScore(0)
@@ -28,6 +29,13 @@ const App = () => {
 
   const handleHiScore = () => {
     score > hiScore ? setHiScore(score) : reset()
+    //setHiScore(score)
+  }
+
+  const handlePerfectScore = () => {
+    difficulty === 1 ? setPerfectScore(6) : 
+    difficulty === 2 ? setPerfectScore(12) :
+    setPerfectScore(18)
     //setHiScore(score)
   }
 
@@ -55,15 +63,35 @@ const App = () => {
     }
   }
 
-  const changeDifficultyU = () => {
-    console.log('difficulty = ' + difficulty)
-    setDifficulty((prevDifficulty) => prevDifficulty + 1)
+  // const changeDifficultyU = () => {
+  //   console.log('difficulty = ' + difficulty)
+  //   setDifficulty((prevDifficulty) => prevDifficulty + 1)
+  // }
+
+  // const changeDifficultyD = () => {
+  //   console.log('difficulty = ' + difficulty)
+  //   setDifficulty((prevDifficulty) => prevDifficulty - 1)
+  // }
+
+  const changeDifficultyEasy = () => {
+    setDifficulty(1)
   }
 
-  const changeDifficultyD = () => {
-    console.log('difficulty = ' + difficulty)
-    setDifficulty((prevDifficulty) => prevDifficulty - 1)
+  const changeDifficultyMedium = () => {
+    setDifficulty(2)
   }
+
+  const changeDifficultyHard = () => {
+    setDifficulty(3)
+  }
+
+  const changeDifficultyExtreme = () => {
+    setDifficulty(4)
+  }
+
+  useEffect(() => {
+    handlePerfectScore()
+  }, [difficulty])
 
   // useEffect(() => {
   //   console.log('use effect')
@@ -89,14 +117,16 @@ const App = () => {
 
   return (
     <div className="App">
-      <p>{cardsArr}</p>
-      <button onClick={() => changeDifficultyD()}>Diff DOWN</button>
-      <button onClick={() => changeDifficultyU()}>Diff UP</button>
-      <button onClick={() => checkMemory('jace')}>add jace</button>
-      <button onClick={() => checkMemory('chandra')}>add chandra</button>
-      <button onClick={scoreUp}>score up</button>
-      <button onClick={reset}>reset</button>
-      <Header score={score} lastScore={lastScore} hiScore={hiScore} />
+      {/* <p>{cardsArr}</p> */}
+      <Header score={score} lastScore={lastScore} hiScore={hiScore} perfectScore={perfectScore} />
+     
+      <div className='difficulty-container'>
+        <button className='btn' onClick={() => changeDifficultyEasy()}>Easy</button>
+        <button className='btn' onClick={() => changeDifficultyMedium()}>Medium</button>
+        <button className='btn' onClick={() => changeDifficultyHard()}>Hard</button>
+        <button className='btn extreme' onClick={() => changeDifficultyExtreme()}>Extreme</button>
+      </div>
+     
       <CardList score={score} checkMemory={checkMemory} difficulty={difficulty} />
     </div>
   );
