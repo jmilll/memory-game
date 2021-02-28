@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import CardList from './components/CardList';
 import Header from './components/Header';
-import {useState, useEffect} from 'react';
+import {useState} from 'react';
 
 const App = () => {
 
@@ -10,6 +10,7 @@ const App = () => {
   const [lastScore, setLastScore] = useState(0)
   const [hiScore, setHiScore] = useState(0)
   const [cardsArr, setCardsArr] = useState([])
+  const [difficulty, setDifficulty] = useState(1)
 
   const reset = () => {
     setScore(0)
@@ -54,6 +55,16 @@ const App = () => {
     }
   }
 
+  const changeDifficultyU = () => {
+    console.log('difficulty = ' + difficulty)
+    setDifficulty((prevDifficulty) => prevDifficulty + 1)
+  }
+
+  const changeDifficultyD = () => {
+    console.log('difficulty = ' + difficulty)
+    setDifficulty((prevDifficulty) => prevDifficulty - 1)
+  }
+
   // useEffect(() => {
   //   console.log('use effect')
   //   const cards = document.querySelectorAll('.card');
@@ -79,12 +90,14 @@ const App = () => {
   return (
     <div className="App">
       <p>{cardsArr}</p>
+      <button onClick={() => changeDifficultyD()}>Diff DOWN</button>
+      <button onClick={() => changeDifficultyU()}>Diff UP</button>
       <button onClick={() => checkMemory('jace')}>add jace</button>
       <button onClick={() => checkMemory('chandra')}>add chandra</button>
       <button onClick={scoreUp}>score up</button>
       <button onClick={reset}>reset</button>
       <Header score={score} lastScore={lastScore} hiScore={hiScore} />
-      <CardList checkMemory={checkMemory} />
+      <CardList score={score} checkMemory={checkMemory} difficulty={difficulty} />
     </div>
   );
 }
