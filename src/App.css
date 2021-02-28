@@ -1,5 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap');
+
+
 body {
   background-color: #503955;
+  font-family: 'Roboto', sans-serif;
 }
 
 .App {
@@ -64,11 +68,13 @@ body {
   border-radius: 15px;
   padding: .5rem;
   margin: 1rem;
+  cursor: pointer;
 }
 
 h2 {
   color: white;
   margin: .3em 0;
+  font-size: 1.3em;
 }
 
 img {

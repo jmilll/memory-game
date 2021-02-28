@@ -35,8 +35,9 @@ import liliana2 from '../images/Liliana-the-Necromancer.jpg'
 // ../images/Liliana-the-Necromancer.jpg
 
 
-const CardList = () => {
+const CardList = (props) => {
 
+    const {checkMemory} = props
 
     const images = [
         {
@@ -117,13 +118,16 @@ const CardList = () => {
     ]
 
 
-
+    const testClick = (e, f) => {
+        console.log(e)
+        //console.log(f)
+    }
 
     return (
         <section className='card-container'>
             {images.map(img => {
                 return (
-                    <div className='card' key={img.title}>
+                    <div className='card' key={img.title} id={img.title}  onClick={checkMemory.bind(this, img.title)}>
                         <h2>{img.title}</h2>
                         <img src={img.src} alt={img.title} />
                         <p className='artist'>Artist: {img.artist}</p>
