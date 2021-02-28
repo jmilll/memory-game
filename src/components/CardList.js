@@ -3,21 +3,28 @@ import {useState, useEffect} from 'react';
 //doesnt work unless have to import img instead of directly listing as src?
 import ajani1 from '../images/Ajani-Valiant-Protector.jpg'
 import ajani2 from '../images/Ajani-Mentor-of-Heroes.jpg'
+import ajani3 from '../images/Ajani-Goldmane.jpg'
 
 import ashiok1 from '../images/Ashiok-Nightmare-Muse.jpg'
 import ashiok2 from '../images/Ashiok-Nightmare-Weaver.jpg'
+import ashiok3 from '../images/Ashiok-Dream-Render.jpg'
 
 import chandra1 from '../images/Chandra-Ablaze.jpg'
 import chandra2 from '../images/Chandra-Torch-of-Defiance.jpg'
+import chandra3 from '../images/Chandra-Pyromaster.jpg'
 
 import garruk1 from '../images/Garruk-Apex-Predator.jpg'
 import garruk2 from '../images/Garruk-the-Veil-Cursed.jpg'
+import garruk3 from '../images/Garruk-Relentless.jpg'
 
 import jace1 from '../images/Jace-Wielder-of-Mysteries.jpg'
-import jace2 from '../images/Jace-the-Living-Guildpactjpg'
+import jace2 from '../images/Jace-the-Living-Guildpact.jpg'
+import jace3 from '../images/Jace-Beleren.jpg'
 
 import liliana1 from '../images/Liliana-Death-Mage.jpg'
 import liliana2 from '../images/Liliana-the-Necromancer.jpg'
+import liliana3 from '../images/Liliana-Dreadhorde-General.jpg'
+
 
 
 
@@ -117,51 +124,51 @@ const CardList = (props) => {
         },
     ]
 
-    // const imagesHard = [
-    //     {
-    //         id: 13,
-    //         src: ashiok3,
-    //         title: '',
-    //         artist: '',
-    //     },
-    //     {
-    //         id: 14,
-    //         src: chandra3,
-    //         title: '',
-    //         artist: '',
-    //     },
-    //     {
-    //         id: 15,
-    //         src: garruk3,
-    //         title: '',
-    //         artist: '',
-    //     },
-    //     {
-    //         id: 16,
-    //         src: jace3,
-    //         title: '',
-    //         artist: '',
-    //     },
-    //     {
-    //         id: 17,
-    //         src: liliana3,
-    //         title: '',
-    //         artist: '',
-    //     },
-    //     {
-    //         id: 18,
-    //         src: ajani3,
-    //         title: '',
-    //         artist: '',
-    //     },
-    // ]
+    const imagesHard = [
+        {
+            id: 13,
+            src: ashiok3,
+            title: 'Ashiok, Dream Render',
+            artist: 'Cynthia Sheppard',
+        },
+        {
+            id: 14,
+            src: chandra3,
+            title: 'Chandra, Pyromaster',
+            artist: 'Winona Nelson',
+        },
+        {
+            id: 15,
+            src: garruk3,
+            title: 'Garruk Relentless',
+            artist: 'Eric Deschamps',
+        },
+        {
+            id: 16,
+            src: jace3,
+            title: 'Jace Beleren',
+            artist: 'Aleksi Briclot',
+        },
+        {
+            id: 17,
+            src: liliana3,
+            title: 'Liliana, Dreadhorde General',
+            artist: 'Chris Rallis',
+        },
+        {
+            id: 18,
+            src: ajani3,
+            title: 'Ajani Goldmane',
+            artist: 'Aleksi Briclot',
+        },
+    ]
 
     //initializes images as the cards under useeffect
     const [cards, setCards] = useState([])
 
     const ez = [...images]
     const med = [...images, ...imagesMed]
-    //const hard = [...images, ...imagesMed, ...imagesHard]
+    const hard = [...images, ...imagesMed, ...imagesHard]
 
     // const testClick = (e, f) => {
     //     console.log(e)
@@ -178,23 +185,21 @@ const CardList = (props) => {
         console.log(med.length)
     }
 
-    const randomize = (arr) => {
-        for (let i = 0; i < arr.length; i++) {
-            let rIndex = Math.floor(Math.random() * arr.length - 1)
-            [arr[rIndex], arr[i]]
 
-        }
-        
-    }
 
     //randomizes cards on each card click, referencing the score as the change catalyst
-    useEffect(() => {
-        console.log('shuffle')
-
-        return () => {
-            //cleanup
+    const shuffle = (newCards) => {
+        for (let i = newCards.length - 1; i > 0; i--) {
+            let randomIdx = Math.floor(Math.random() * i);
+            [newCards[randomIdx], newCards[i]] = [newCards[i], newCards[randomIdx]];
         }
-    }, [score])
+    };
+
+    useEffect(() => {
+        const newCards = [...cards];
+        shuffle(newCards);
+        setCards(newCards);
+    }, [score]);
 
     //changes cards only when diff changes
     useEffect(() => {
@@ -203,14 +208,37 @@ const CardList = (props) => {
         } else if (difficulty === 2) {
             setCards(med)
         } else {
-            console.log('too hard')
-            //setCards(hard)
+            setCards(hard)
         }
 
         return () => {
             //cleanup
         }
     }, [difficulty])
+
+
+    // const randomize = (arr) => {
+    //     for (let i = 0; i < arr.length; i++) {
+    //         let randomIndex = Math.floor(Math.random() * arr.length - 1)
+    //         [arr[randomIndex], arr[i]] = [arr[i], arr[randomIndex]]
+
+    //     }
+        
+    // }
+
+    //randomizes cards on each card click, referencing the score as the change catalyst
+    // useEffect(() => {
+    //     console.log('shuffle')
+    //     const arr = [...cards]
+    //     randomize(arr)
+    //     setCards(arr)
+
+
+
+    //     return () => {
+    //         //cleanup
+    //     }
+    //}, [score])
 
 
 
