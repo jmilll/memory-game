@@ -2,8 +2,7 @@
 A memory game with difficulty options and randomization.
 
 Built in React, the game features card art from various Magic The Gathering cards.
-
-Get points for choosing a card, but don't click on the same card more than once! Cards randomize afer each click.
+Cards randomize afer each click. Get points for choosing a card, but don't click on the same card more than once! 
 
 Try to get the top score of each difficulty, the randomization makes it very difficult.
 
