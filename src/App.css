@@ -1,9 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap');
 
-
 body {
   background-color: #434e54;
-  /* background-color: #121317; */
   font-family: 'Roboto', sans-serif;
   margin: 0;
 
@@ -24,9 +22,7 @@ body {
   --w: #907565;
   --r: #562422;
   --g: #212321;
-
 }
-
 
 .card.u {
   background-color: var(--u);
@@ -49,13 +45,6 @@ body {
 }
 
 h1 {
-  /* color: var(--light-text-color);
-
-  background: #212321;
-  margin: 0 0 1rem 0;
-  padding: 1rem 0 .5rem 0; */
-
-
   color: var(--l-highlight);
   margin: 0 0 1rem 0;
   padding: 2rem 0 .5rem 0;
@@ -82,27 +71,19 @@ p {
 
   width: 500px;
   margin: 0 auto 0 auto;
-  /* border: 2px solid white;
-  border-radius: 10px;
-  padding: 1em; */
   height: 8rem;
   background: var(--l-highlight);
 
   outline: 1px solid var(--l-highlight);
-    outline-offset: -1px;
+  outline-offset: -1px;
 }
 
 .scoreboard p {
-  /* color: var(--light-text-color); */
   color: var(--dark-bkg);
-  /* margin: 0 1.5em; */
   margin: 0 1.5em;
-
-  
 }
 
 .instructions {
-  
   font-size: .8em;
     border-bottom: 1px solid;
     padding: .5rem;
@@ -154,10 +135,6 @@ p {
 }
 
 .selected {
-  /* background-color: #ffeb3b;
-  font-weight: 700;
-  color: #212321; */
-
   background-color: var(--l-highlight);
   font-weight: 700;
   color: #212321;
@@ -252,20 +229,19 @@ p {
   cursor: pointer;
 }
 
+/* .card1:hover {
+  outline: 1px solid var(--l-highlight);
+  outline-offset: 8px;
+} */
+
 h2 {
   color: var(--light-text-color);
   margin: .3em 0;
   font-size: 1.3em;
   font-weight: 100;
-
 }
 
 img {
-  /* background: violet;
-  width: 300px;
-  height: 400px;
-  object-fit: cover; */
-
   width: 90%;
   height: 80%;
   object-fit: cover;
@@ -275,4 +251,10 @@ img {
 .artist {
   margin: .5em 0;
   font-weight: 100;
+}
+
+@media (min-width:1900px) { /* big landscape tablets, laptops, and desktops */ 
+  .card-container {
+    margin: 0 200px;
+  }
 }
