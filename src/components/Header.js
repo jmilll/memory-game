@@ -15,6 +15,7 @@ const Header = (props) => {
                     <p>Last Streak: {lastScore}</p>
                     <p>High Score: {hiScore}</p>
                 </div>
+                
                 <p className='perfect-score'>Perfect score for this difficulty: {perfectScore} </p>
             </div>
         </section>
