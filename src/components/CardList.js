@@ -1,5 +1,6 @@
 import React from 'react'
 import {useState, useEffect} from 'react';
+
 //doesnt work unless have to import img instead of directly listing as src?
 import ajani1 from '../images/Ajani-Valiant-Protector.jpg'
 import ajani2 from '../images/Ajani-Mentor-of-Heroes.jpg'
@@ -170,23 +171,6 @@ const CardList = (props) => {
     const med = [...images, ...imagesMed]
     const hard = [...images, ...imagesMed, ...imagesHard]
 
-    // const testClick = (e, f) => {
-    //     console.log(e)
-    //     //console.log(f)
-    // }
-
-    function logez() {
-        const ez = [...images]
-        console.log(ez.length)
-    }
-
-    function logmed() {
-        const med = [...images, ...imagesMed]
-        console.log(med.length)
-    }
-
-
-
     //randomizes cards on each card click, referencing the score as the change catalyst
     const shuffle = (newCards) => {
         for (let i = newCards.length - 1; i > 0; i--) {
@@ -195,6 +179,7 @@ const CardList = (props) => {
         }
     };
 
+    //randomize cards only when score changes, indicating click
     useEffect(() => {
         const newCards = [...cards];
         shuffle(newCards);
@@ -217,36 +202,12 @@ const CardList = (props) => {
     }, [difficulty])
 
 
-    // const randomize = (arr) => {
-    //     for (let i = 0; i < arr.length; i++) {
-    //         let randomIndex = Math.floor(Math.random() * arr.length - 1)
-    //         [arr[randomIndex], arr[i]] = [arr[i], arr[randomIndex]]
-
-    //     }
-        
-    // }
-
-    //randomizes cards on each card click, referencing the score as the change catalyst
-    // useEffect(() => {
-    //     console.log('shuffle')
-    //     const arr = [...cards]
-    //     randomize(arr)
-    //     setCards(arr)
-
-
-
-    //     return () => {
-    //         //cleanup
-    //     }
-    //}, [score])
 
 
 
     return (
         <section className='card-container'>
             
-            {/* <button onClick={() => {logez()}}>ez arr</button>
-            <button onClick={() => {logmed()}}>med arr</button> */}
             {cards.map(img => {
                 return (
                     <div className={'card' + difficulty} key={img.title} id={img.title}  onClick={checkMemory.bind(this, img.title)}>
@@ -257,56 +218,11 @@ const CardList = (props) => {
                 )
             })}
 
-            {/* {images.map(img => {
-                return (
-                    <div className='card' key={img.title} id={img.title}  onClick={checkMemory.bind(this, img.title)}>
-                        <h2>{img.title}</h2>
-                        <img src={img.src} alt={img.title} />
-                        <p className='artist'>Artist: {img.artist}</p>
-                    </div>
-                )
-            })} */}
-
         </section>
 
 
     )
-
-
-
-
-
-
-    // if (difficulty === 1) {
-    //     return (
-    //         <section className='card-container'>
-                
-    //             <button onClick={() => {logez()}}>ez arr</button>
-    //             <button onClick={() => {logmed()}}>med arr</button>
-    
-    //             {images.map(img => {
-    //                 return (
-    //                     <div className='card' key={img.title} id={img.title}  onClick={checkMemory.bind(this, img.title)}>
-    //                         <h2>{img.title}</h2>
-    //                         <img src={img.src} alt={img.title} />
-    //                         <p className='artist'>Artist: {img.artist}</p>
-    //                     </div>
-    //                 )
-    //             })}
-    
-    //         </section>
-    //     )
-    // } else if (difficulty === 2) { 
-    //     return (
-    //         <h2>MEDIUM DIFF</h2>
-    //     )
-    // } else {
-    //     return (
-    //         <h2>HARD DIFF</h2>
-    //     )
-    // }
-
-        
+  
 }
 
 export default CardList
