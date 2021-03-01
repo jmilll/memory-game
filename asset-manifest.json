@@ -1,0 +1,38 @@
+{
+  "files": {
+    "main.css": "/memory-game/static/css/main.a92e0190.chunk.css",
+    "main.js": "/memory-game/static/js/main.7ad9dc20.chunk.js",
+    "main.js.map": "/memory-game/static/js/main.7ad9dc20.chunk.js.map",
+    "runtime-main.js": "/memory-game/static/js/runtime-main.7e9e4a71.js",
+    "runtime-main.js.map": "/memory-game/static/js/runtime-main.7e9e4a71.js.map",
+    "static/js/2.f0ba12c0.chunk.js": "/memory-game/static/js/2.f0ba12c0.chunk.js",
+    "static/js/2.f0ba12c0.chunk.js.map": "/memory-game/static/js/2.f0ba12c0.chunk.js.map",
+    "index.html": "/memory-game/index.html",
+    "static/css/main.a92e0190.chunk.css.map": "/memory-game/static/css/main.a92e0190.chunk.css.map",
+    "static/js/2.f0ba12c0.chunk.js.LICENSE.txt": "/memory-game/static/js/2.f0ba12c0.chunk.js.LICENSE.txt",
+    "static/media/Ajani-Goldmane.a4adb2be.jpg": "/memory-game/static/media/Ajani-Goldmane.a4adb2be.jpg",
+    "static/media/Ajani-Mentor-of-Heroes.5411c40f.jpg": "/memory-game/static/media/Ajani-Mentor-of-Heroes.5411c40f.jpg",
+    "static/media/Ajani-Valiant-Protector.3bc3c1b3.jpg": "/memory-game/static/media/Ajani-Valiant-Protector.3bc3c1b3.jpg",
+    "static/media/Ashiok-Dream-Render.d539a604.jpg": "/memory-game/static/media/Ashiok-Dream-Render.d539a604.jpg",
+    "static/media/Ashiok-Nightmare-Muse.93ed0ac5.jpg": "/memory-game/static/media/Ashiok-Nightmare-Muse.93ed0ac5.jpg",
+    "static/media/Ashiok-Nightmare-Weaver.97cbf5a3.jpg": "/memory-game/static/media/Ashiok-Nightmare-Weaver.97cbf5a3.jpg",
+    "static/media/Chandra-Ablaze.3b76aeab.jpg": "/memory-game/static/media/Chandra-Ablaze.3b76aeab.jpg",
+    "static/media/Chandra-Pyromaster.82a1cfde.jpg": "/memory-game/static/media/Chandra-Pyromaster.82a1cfde.jpg",
+    "static/media/Chandra-Torch-of-Defiance.c747a3cc.jpg": "/memory-game/static/media/Chandra-Torch-of-Defiance.c747a3cc.jpg",
+    "static/media/Garruk-Apex-Predator.837ec51b.jpg": "/memory-game/static/media/Garruk-Apex-Predator.837ec51b.jpg",
+    "static/media/Garruk-Relentless.8288cd69.jpg": "/memory-game/static/media/Garruk-Relentless.8288cd69.jpg",
+    "static/media/Garruk-the-Veil-Cursed.94ac16e3.jpg": "/memory-game/static/media/Garruk-the-Veil-Cursed.94ac16e3.jpg",
+    "static/media/Jace-Beleren.791dedc4.jpg": "/memory-game/static/media/Jace-Beleren.791dedc4.jpg",
+    "static/media/Jace-Wielder-of-Mysteries.6316f896.jpg": "/memory-game/static/media/Jace-Wielder-of-Mysteries.6316f896.jpg",
+    "static/media/Jace-the-Living-Guildpact.31479484.jpg": "/memory-game/static/media/Jace-the-Living-Guildpact.31479484.jpg",
+    "static/media/Liliana-Death-Mage.66669396.jpg": "/memory-game/static/media/Liliana-Death-Mage.66669396.jpg",
+    "static/media/Liliana-Dreadhorde-General.bf30253f.jpg": "/memory-game/static/media/Liliana-Dreadhorde-General.bf30253f.jpg",
+    "static/media/Liliana-the-Necromancer.503d2584.jpg": "/memory-game/static/media/Liliana-the-Necromancer.503d2584.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7e9e4a71.js",
+    "static/js/2.f0ba12c0.chunk.js",
+    "static/css/main.a92e0190.chunk.css",
+    "static/js/main.7ad9dc20.chunk.js"
+  ]
+}
